@@ -1,48 +1,46 @@
 import React, { Component } from 'react';
+import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 export default class Locations extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            locations: [
-                {
-                    id: 0,
-                    name: 'Jersey City',
-                    image: 'assets/images/react-lake.jpg',
-                    parking: false,
-                    description: 'Our very first location, and our most popular!'
-                },
-                {
-                    id: 1,
-                    name: 'Princeton',
-                    image: 'assets/images/chrome-river.jpg',
-                    parking: true,
-                    description: 'Located right next to Princeton University!'
-                },
-                {
-                    id: 2,
-                    name: 'Edison',
-                    image: 'assets/images/breadcrumb-trail.jpg',
-                    parking: false,
-                    description: 'Not just known for where the famous inventor!'
-                },
-                {
-                    id: 3,
-                    name: 'New York City',
-                    image: 'assets/images/redux-woods.jpg',
-                    parking: true,
-                    description: 'The first location in New York!'
-                },
-            ]
+            selectedLocation: null
         };
     }
 
-    render() {
-        const location = this.state.locations.map(location => {
+    onLocationSelect(location) {
+        this.setState({ selectedLocation: location });
+    }
+
+    renderSelectedLocation(location) {
+        if (location) {
             return (
-                <div key={location.id} className="col">
-                    <img src={location.image} alt={location.name} />
+                <Card>
+                    <CardImg top src={location.image} alt={location.name} />
+                    <CardBody>
+                        <CardTitle>{location.name}</CardTitle>
+                        <CardText>{location.description}</CardText>
+                        <CardText>Parking: {(location.parking) ? 'Available' : 'Unavailable'}</CardText>
+                    </CardBody>
+                </Card>
+            );
+        }
+        return <div />;
+    }
+
+    render() {
+
+        const location = this.props.locationsLink.map(location => {
+            return (
+                <div key={location.id} className="col-md-5 m-1">
+                    <Card onClick={() => this.onLocationSelect(location)}>
+                        <CardImg width='100%' src={location.image} alt={location.name} />
+                        <CardImgOverlay>
+                            <CardTitle>{location.name}</CardTitle>
+                        </CardImgOverlay>
+                    </Card>
                     <h2>{location.name}</h2>
                     <p>{location.description}</p>
                 </div>
@@ -53,6 +51,11 @@ export default class Locations extends Component {
             <div className="container">
                 <div className="row">
                     {location}
+                </div>
+                <div className="row">
+                    <div className="col-md-5 m-1">
+                        {this.renderSelectedLocation(this.state.selectedLocation)}
+                    </div>
                 </div>
             </div>
         );
