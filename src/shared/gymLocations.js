@@ -1,7 +1,7 @@
 export const GYMLOCATIONS = [
     {
         id: 0,
-        name: 'Jersey City',
+        name: 'Jersey City Boi',
         image: 'assets/images/react-lake.jpg',
         parking: false,
         description: 'Our very first location, and our most popular!'

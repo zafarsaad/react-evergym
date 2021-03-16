@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
-import Locations from './components/LocationsComponent';
+import Directory from './components/DirectoryComponent';
 import { GYMLOCATIONS } from './shared/gymLocations';
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      locationsImport: GYMLOCATIONS
+      locationsImported: GYMLOCATIONS
     };
   }
 
@@ -21,7 +21,7 @@ class App extends Component {
             <NavbarBrand href="/">EverGym</NavbarBrand>
           </div>
         </Navbar>
-        <Locations locationsLink={this.state.locationsImport} />
+        <Directory locationsList={this.state.locationsImported} />
       </div>
     );
   }

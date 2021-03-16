@@ -1,0 +1,10 @@
+Components:
+AboutComponent = TrainersComponent
+CampsiteInfoComponent = LocationInfoComponent
+ContactComponent = CheckInComponent
+DirectoryComponent = DirectoryComponent
+FooterComponent = FooterComponent
+HeaderComponent = HeaderComponent
+HomeComponent = PlansComponent
+LoadingCoponent = LoadingCoponent
+MainComponent = MainComponent

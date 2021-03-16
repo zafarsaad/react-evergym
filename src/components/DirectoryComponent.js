@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+// import LocationInfo from './LocationInfoComponent';
 
-export default class Locations extends Component {
+export default class Directory extends Component {
 
     constructor(props) {
         super(props);
@@ -14,15 +15,15 @@ export default class Locations extends Component {
         this.setState({ selectedLocation: location });
     }
 
-    renderSelectedLocation(location) {
-        if (location) {
+    renderSelectedLocation(clickedLocation) {
+        if (clickedLocation) {
             return (
                 <Card>
-                    <CardImg top src={location.image} alt={location.name} />
+                    <CardImg top src={clickedLocation.image} alt={clickedLocation.name} />
                     <CardBody>
-                        <CardTitle>{location.name}</CardTitle>
-                        <CardText>{location.description}</CardText>
-                        <CardText>Parking: {(location.parking) ? 'Available' : 'Unavailable'}</CardText>
+                        <CardTitle>{clickedLocation.name}</CardTitle>
+                        <CardText>{clickedLocation.description}</CardText>
+                        <CardText>Parking: {(clickedLocation.parking) ? 'Available' : 'Unavailable'}</CardText>
                     </CardBody>
                 </Card>
             );
@@ -32,7 +33,7 @@ export default class Locations extends Component {
 
     render() {
 
-        const location = this.props.locationsLink.map(location => {
+        const location = this.props.locationsList.map(location => {
             return (
                 <div key={location.id} className="col-md-5 m-1">
                     <Card onClick={() => this.onLocationSelect(location)}>
