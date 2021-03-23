@@ -1,7 +1,7 @@
-export const GYMLOCATIONS = [
+export const CAMPSITES = [
     {
         id: 0,
-        name: "Jersey City",
+        name: "React Lake Campground",
         image: "/assets/images/react-lake.jpg",
         elevation: 1233,
         featured: false,
@@ -9,7 +9,7 @@ export const GYMLOCATIONS = [
     },
     {
         id: 1,
-        name:"Bayonne",
+        name:"Chrome River Campground ",
         image: "/assets/images/chrome-river.jpg",
         elevation: 877,
         featured: false,
@@ -17,7 +17,7 @@ export const GYMLOCATIONS = [
     },
     {
         id: 2,
-        name:"Hoboken",
+        name:"Breadcrumb Trail Campground",
         image: "/assets/images/breadcrumb-trail.jpg",
         elevation: 2901,
         featured: false,
@@ -25,7 +25,7 @@ export const GYMLOCATIONS = [
     },
     {
         id: 3,
-        name:"Union",
+        name:"Redux Woods Campground",
         image: "/assets/images/redux-woods.jpg",
         elevation: 42,
         featured: true,

@@ -5,6 +5,8 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'typeface-notable';
 import 'typeface-open-sans';
+import 'font-awesome/css/font-awesome.css'
+import 'bootstrap-social/bootstrap-social.css'
 // Have to import App.js below the fonts we imported via 'yarn add typeface-font'
 import App from './App';
 
