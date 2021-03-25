@@ -1,13 +1,16 @@
 import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 function RenderDirectoryItem({ location }) {
     return (
         <Card>
-            <CardImg width='100%' src={location.image} alt={location.name} />
-            <CardImgOverlay>
-                <CardTitle>{location.name}</CardTitle>
-            </CardImgOverlay>
+            <Link to={`/directory/${location.id}`}>
+                <CardImg width='100%' src={location.image} alt={location.name} />
+                <CardImgOverlay>
+                    <CardTitle>{location.name}</CardTitle>
+                </CardImgOverlay>
+            </Link>
         </Card>
     );
 }
@@ -24,6 +27,14 @@ function Directory(props) {
 
     return (
         <div className="container">
+            <div className="row">
+                <div className="col">
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Directory</BreadcrumbItem>
+                    </Breadcrumb>
+                </div>
+            </div>
             <div className="row">
                 {directory}
             </div>

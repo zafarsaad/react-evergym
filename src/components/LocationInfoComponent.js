@@ -1,15 +1,16 @@
 import React from "react";
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-function RenderReviews({ reviews }) {
-    if (reviews) {
+function RenderReviews({ comments }) {
+    if (comments) {
         return (
             <div className="col-md-5 m-1">
                 <h4>Reviews</h4>
                 {
-                    reviews.map((c) => (
+                    comments.map((c) => (
                         <div key={c.id}>
-                            <p>{c.text}</p>
+                            <p>-- "{c.text}"</p>
                             <p>
                                 {c.author},
                                     {new Intl.DateTimeFormat('en-US', {
@@ -34,7 +35,6 @@ function RenderLocation({ location }) {
             <Card>
                 <CardImg top src={location.image} alt={location.name} />
                 <CardBody>
-                    <CardTitle>{location.name}</CardTitle>
                     <CardText>{location.description}</CardText>
                 </CardBody>
             </Card>
@@ -47,8 +47,18 @@ function LocationInfo(props) {
         return (
             <div className="container">
                 <div className="row">
+                <div className="col">
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to="/directory">Directory</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>{props.location.name}</BreadcrumbItem>
+                    </Breadcrumb>
+                    <h2>{props.location.name}</h2>
+                    <hr />
+                </div>
+            </div>
+                <div className="row">
                     <RenderLocation location={props.location} />
-                    <RenderReviews reviews={props.location.reviews} />
+                    <RenderReviews comments={props.comments} />
                 </div>
             </div>
         )

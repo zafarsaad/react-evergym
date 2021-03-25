@@ -6,6 +6,7 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import LocationInfo from './LocationInfoComponent';
 import CheckIn from './CheckInComponent';
+import Trainers from './TrainersComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { GYMLOCATIONS } from '../shared/gymLocations';
 import { COMMENTS } from '../shared/comments';
@@ -32,13 +33,24 @@ class Main extends Component {
         // Otherwise a normal function declaration "this" would have nbeen undefined for this.state
         const HomePage = () => {
             return (
-                <Home 
+                <Home
                     location={this.state.locationsImported.filter(location => location.featured)[0]}
                     promotion={this.state.promotions.filter(promotion => promotion.featured)[0]}
                     partner={this.state.partners.filter(partner => partner.featured)[0]}
                 />
             );
         }
+
+        const LocationWithId = ({ match }) => {
+            return (
+                <LocationInfo
+                    location={this.state.locationsImported.filter(location => location.id ===
+                        +match.params.locationId)[0]}
+                    comments={this.state.comments.filter(comment => comment.campsiteId ===
+                        +match.params.locationId)} />
+            )
+        }
+
         return (
             <div>
                 <Header />
@@ -47,6 +59,8 @@ class Main extends Component {
                     {/* Here we are actually passing state Data therefore, we use the render syntax for Directory */}
                     <Route exact path='/directory' render={() => <Directory
                         locationsList={this.state.locationsImported} />} />
+                    <Route path='/directory/:locationId' component={LocationWithId} />
+                    <Route path='/trainers' render={() => <Trainers partners={this.state.partners} />} />
                     <Route path='/checkin' component={CheckIn} />
                     <Redirect to='/home' />
                 </Switch>
