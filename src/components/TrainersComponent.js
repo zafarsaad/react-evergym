@@ -7,7 +7,7 @@ function RenderPartner({ partner }) {
     if (partner) {
         return (
             <React.Fragment>
-                <Media object={true} src={partner.image} alt={partner.name} width="150"/>
+                <Media object={true} src={partner.image} alt={partner.name} width="250"/>
                 <Media body={true} className="ml-5 mb-4">
                     <Media heading={true}>{partner.name}</Media>
                     {partner.description}
@@ -38,10 +38,20 @@ function About(props) {
                 <div className="col">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>About Us</BreadcrumbItem>
+                        <BreadcrumbItem active>Trainers</BreadcrumbItem>
                     </Breadcrumb>
-                    <h2>About Us</h2>
+                    <h2>Trainers</h2>
                     <hr />
+                </div>
+            </div>
+            <div className="row row-content">
+                {/* <div className="col-12">
+                    <h3>Trainers</h3>
+                </div> */}
+                <div className="col">
+                    <Media list>
+                        {partners}
+                    </Media>
                 </div>
             </div>
             <div className="row row-content">
@@ -51,17 +61,17 @@ function About(props) {
                 </div>
                 <div className="col-sm-6">
                     <Card>
-                        <CardHeader className="bg-primary text-white"><h3>Facts At a Glance</h3></CardHeader>
+                        <CardHeader className="bg-danger text-white"><h3>Facts At a Glance</h3></CardHeader>
                         <CardBody>
                             <dl className="row">
                                 <dt className="col-6">Founded</dt>
-                                <dd className="col-6">February 3, 2016</dd>
-                                <dt className="col-6">No. of Campsites in 2019</dt>
-                                <dd className="col-6">563</dd>
+                                <dd className="col-6">February 3, 2018</dd>
+                                <dt className="col-6">No. of Locations in 2021</dt>
+                                <dd className="col-6">14</dd>
                                 <dt className="col-6">No. of Reviews in 2019</dt>
-                                <dd className="col-6">4388</dd>
+                                <dd className="col-6">2055</dd>
                                 <dt className="col-6">Employees</dt>
-                                <dd className="col-6">42</dd>
+                                <dd className="col-6">142</dd>
                             </dl>
                         </CardBody>
                     </Card>
@@ -78,16 +88,6 @@ function About(props) {
                             </blockquote>
                         </CardBody>
                     </Card>
-                </div>
-            </div>
-            <div className="row row-content">
-                <div className="col-12">
-                    <h3>Community Partners</h3>
-                </div>
-                <div className="col mt-4">
-                    <Media list>
-                        {partners}
-                    </Media>
                 </div>
             </div>
         </div>
