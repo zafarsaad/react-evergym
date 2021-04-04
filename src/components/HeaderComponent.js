@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron,
-    Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
+import {
+    Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron,
+    Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label, Media
+} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
@@ -48,10 +50,9 @@ class Header extends Component {
                         </div>
                     </div>
                 </Jumbotron>
-
                 <Navbar dark sticky="top" expand="md">
                     <div className="container">
-                        <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo.png" height="30" width="30"
+                        <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo2.png" height="30" width="30"
                             alt="EverGym Logo" /></NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -62,8 +63,8 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/directory">
-                                        <i className="fa fa-list fa-lg" /> Directory
+                                    <NavLink className="nav-link" to="/locations">
+                                        <i className="fa fa-list fa-lg" /> Locations
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
@@ -91,7 +92,7 @@ class Header extends Component {
                         <Form onSubmit={this.handleLogin}>
                             <FormGroup>
                                 <Label htmlFor="username">Username</Label>
-                                <Input type="text" id="username" name="username" 
+                                <Input type="text" id="username" name="username"
                                     innerRef={input => this.username = input} />
                             </FormGroup>
                             <FormGroup>

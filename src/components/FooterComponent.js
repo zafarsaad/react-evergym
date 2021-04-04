@@ -10,7 +10,7 @@ function Footer(props) {
                         <h5>Quick Links</h5>
                         <ul className="list-unstyled">
                             <li><Link to="/home">Home</Link></li>
-                            <li><Link to="/directory">Directory</Link></li>
+                            <li><Link to="/locations">Locations</Link></li>
                             <li><Link to="/trainers">Trainers</Link></li>
                             <li><Link to="/checkin">Check-In</Link></li>
                         </ul>

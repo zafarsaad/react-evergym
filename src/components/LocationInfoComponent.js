@@ -81,8 +81,8 @@ class ReviewForm extends Component {
     }
 
     handleRevSubmit(event) {
-        console.log("TBC Submit");
-        alert("TBC Submit");
+        console.log('Current state is: ' + JSON.stringify(this.state));
+        alert('Current state is: ' + JSON.stringify(this.state));
         event.preventDefault();
     }
 
@@ -114,8 +114,6 @@ class ReviewForm extends Component {
                                 <Label htmlFor="rating" md={2}>Rating</Label>
                                 <Col md={10}>
                                     <Input type="select" id="rating" name="rating"
-                                        // placeholder="Rating"
-                                        // value={this.state.rating}
                                         invalid={errors.rating}
                                         onBlur={this.handleBlur('rating')}
                                         onChange={this.handleInputChange} >
@@ -141,23 +139,10 @@ class ReviewForm extends Component {
                                     <FormFeedback>{errors.review}</FormFeedback>
                                 </Col>
                             </FormGroup>
-                            {/* <FormGroup row>
-                                <Col md={{ size: 4, offset: 2 }}>
-                                    <FormGroup check>
-                                        <Label check>
-                                            <Input type="checkbox"
-                                                name="trainerUsed"
-                                                checked={this.state.trainerUsed}
-                                                onChange={this.handleInputChange} /> {' '}
-                                            <strong>Trainer-led Session?</strong>
-                                        </Label>
-                                    </FormGroup>
-                                </Col>
-                            </FormGroup> */}
                             <FormGroup row>
                                 <Col md={{ size: 10, offset: 2 }}>
                                     <Button type="submit" color="primary">
-                                        Send Feedback
+                                        Submit Review
                                     </Button>
                                 </Col>
                             </FormGroup>
@@ -217,7 +202,7 @@ function LocationInfo(props) {
                 <div className="row">
                     <div className="col">
                         <Breadcrumb>
-                            <BreadcrumbItem><Link to="/directory">Directory</Link></BreadcrumbItem>
+                            <BreadcrumbItem><Link to="/locations">Locations</Link></BreadcrumbItem>
                             <BreadcrumbItem active>{props.location.name}</BreadcrumbItem>
                         </Breadcrumb>
                         <h2>{props.location.name}</h2>

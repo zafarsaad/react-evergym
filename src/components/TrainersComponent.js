@@ -57,7 +57,7 @@ function About(props) {
             <div className="row row-content">
                 <div className="col-sm-6">
                     <h3>Our Mission</h3>
-                    <p>We present a curated database of the best campsites in the vast woods and backcountry of the World Wide Web Wilderness. We increase access to adventure for the public while promoting safe and respectful use of resources. The expert wilderness trekkers on our staff personally verify each campsite to make sure that they are up to our standards. We also present a platform for campers to share reviews on campsites they have visited with each other.</p>
+                    <p>We want to make gyms a place where the best parts of you are found. In order to do that we don't have complex cancellation fees or make you jump through hoops to cancel. We keep moving forward. Those who are serious about getting in shape will stay. They are our family.</p>
                 </div>
                 <div className="col-sm-6">
                     <Card>
@@ -80,10 +80,9 @@ function About(props) {
                     <Card className="bg-light mt-3">
                         <CardBody>
                             <blockquote className="blockquote">
-                                <p className="mb-0">I will not follow where the path may lead, but I will go where there is no path, and I will leave a trail.</p>
-                                <footer className="blockquote-footer">Muriel Strode,{' '}
-                                    <cite title="Source Title">"Wind-Wafted Wild Flowers" -
-                                    The Open Court, 1903</cite>
+                                <p className="mb-0">The pain you feel today will be the strength you will feel tomorrow.</p>
+                                <footer className="blockquote-footer">Stephen Richards{' '}
+                                    <cite title="Source Title"></cite>
                                 </footer>
                             </blockquote>
                         </CardBody>

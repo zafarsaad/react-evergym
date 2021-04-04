@@ -180,7 +180,7 @@ class CheckIn extends React.Component {
                             <FormGroup row>
                                 <Col md={{ size: 10, offset: 2 }}>
                                     <Button type="submit" color="primary">
-                                        Send Feedback
+                                        Check-in!
                                     </Button>
                                 </Col>
                             </FormGroup>

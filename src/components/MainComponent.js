@@ -57,9 +57,9 @@ class Main extends Component {
                 <Switch>
                     <Route path='/home' component={HomePage} />
                     {/* Here we are actually passing state Data therefore, we use the render syntax for Directory */}
-                    <Route exact path='/directory' render={() => <Directory
+                    <Route exact path='/locations' render={() => <Directory
                         locationsList={this.state.locationsImported} />} />
-                    <Route path='/directory/:locationId' component={LocationWithId} />
+                    <Route path='/locations/:locationId' component={LocationWithId} />
                     <Route path='/trainers' render={() => <Trainers partners={this.state.partners} />} />
                     <Route path='/checkin' component={CheckIn} />
                     <Redirect to='/home' />
