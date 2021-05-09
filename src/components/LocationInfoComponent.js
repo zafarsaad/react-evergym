@@ -77,13 +77,19 @@ class ReviewForm extends Component {
         this.setState({
             [name]: value
         });
-        console.log(name + ":" +target.value);
+        console.log(name + ":" + target.value);
     }
 
     handleRevSubmit(event) {
-        console.log('Current state is: ' + JSON.stringify(this.state));
-        alert('Current state is: ' + JSON.stringify(this.state));
         event.preventDefault();
+        console.log('Current state is: ' + JSON.stringify(this.state));
+        console.log('Props of Site: ' + JSON.stringify(this.props.locationChosen));
+        this.props.addReview(this.state.location, this.state.rating, this.state.review);
+        this.toggleRevModal();
+    }
+
+    addReview() {
+        console.log('just a test function inside ReviewForm');
     }
 
     render() {
@@ -95,7 +101,7 @@ class ReviewForm extends Component {
                 <Button onClick={this.toggleRevModal}>
                     <i className="fa fa-pencil fa-lg" /> Submit Review</Button>
                 <Modal isOpen={this.state.isRevModalOpen} toggle={this.toggleRevModal}>
-                    <ModalHeader toggle={this.toggleRevModal}>Test</ModalHeader>
+                    <ModalHeader toggle={this.toggleRevModal}>{this.props.locationChosen}</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.handleRevSubmit}>
                             <FormGroup row>
@@ -141,7 +147,8 @@ class ReviewForm extends Component {
                             </FormGroup>
                             <FormGroup row>
                                 <Col md={{ size: 10, offset: 2 }}>
-                                    <Button type="submit" color="primary">
+                                    <Button type="submit" color="primary" disabled={errors.location || errors.rating || errors.review ||
+                                        !this.state.touched.location || !this.state.touched.rating || !this.state.touched.review}>
                                         Submit Review
                                     </Button>
                                 </Col>
@@ -154,7 +161,7 @@ class ReviewForm extends Component {
     }
 }
 
-function RenderReviews({ comments }) {
+function RenderReviews({ comments, addReview, locationId }) {
     if (comments) {
         return (
             <div className="col-md-5 m-1">
@@ -162,10 +169,11 @@ function RenderReviews({ comments }) {
                 {
                     comments.map((c) => (
                         <div key={c.id}>
-                            <p>-- "{c.text}"</p>
-                            <p>
+                            <p>"{c.text}"</p>
+                            <p>-- {' '}
                                 {c.author},
-                                    {new Intl.DateTimeFormat('en-US', {
+                                {' - '}
+                                {new Intl.DateTimeFormat('en-US', {
                                     year: 'numeric',
                                     month: 'short',
                                     day: '2-digit'
@@ -173,7 +181,7 @@ function RenderReviews({ comments }) {
                         </div>
                     ))
                 }
-                <ReviewForm />
+                <ReviewForm locationChosen={locationId} addReview={addReview} />
             </div>
         )
     }
@@ -211,7 +219,11 @@ function LocationInfo(props) {
                 </div>
                 <div className="row">
                     <RenderLocation location={props.location} />
-                    <RenderReviews comments={props.comments} />
+                    <RenderReviews
+                        comments={props.comments}
+                        addReview={props.addReview}
+                        locationId={props.location.id}
+                    />
                 </div>
             </div>
         )

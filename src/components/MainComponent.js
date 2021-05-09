@@ -13,8 +13,8 @@ import { COMMENTS } from '../shared/comments';
 import { PROMOTIONS } from '../shared/promotions';
 import { PARTNERS } from '../shared/partners';
 
-
 class Main extends Component {
+
 
     constructor(props) {
         super(props);
@@ -24,7 +24,23 @@ class Main extends Component {
             partners: PARTNERS,
             promotions: PROMOTIONS
         };
+        this.addReivew = this.addReivew.bind(this);
     }
+
+    addReivew(location, rating, review) {
+        console.log('Outhere in the Main Comp!');
+        const reviewShell = {
+            campsiteId: 1,
+            author: location,
+            rating: rating,
+            text: review
+        };
+        reviewShell.id = this.state.comments.length;
+        reviewShell.date = new Date().toISOString();
+        this.setState({
+            comments: this.state.comments.concat(reviewShell)
+        });
+    }   
 
     render() {
 
@@ -47,7 +63,8 @@ class Main extends Component {
                     location={this.state.locationsImported.filter(location => location.id ===
                         +match.params.locationId)[0]}
                     comments={this.state.comments.filter(comment => comment.campsiteId ===
-                        +match.params.locationId)} />
+                        +match.params.locationId)} 
+                    addReview={this.addReivew}/>
             )
         }
 

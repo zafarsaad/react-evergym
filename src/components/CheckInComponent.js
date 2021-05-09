@@ -179,7 +179,8 @@ class CheckIn extends React.Component {
                             </FormGroup>
                             <FormGroup row>
                                 <Col md={{ size: 10, offset: 2 }}>
-                                    <Button type="submit" color="primary">
+                                    <Button type="submit" color="primary" disabled={errors.location || errors.name || errors.date || 
+                                        !this.state.touched.location || !this.state.touched.name || !this.state.touched.date }>
                                         Check-in!
                                     </Button>
                                 </Col>
